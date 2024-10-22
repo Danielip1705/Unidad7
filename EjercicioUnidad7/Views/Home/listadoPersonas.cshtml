@@ -12,8 +12,8 @@
         <th>Edad</th>
     </tr>
    
-
-        @foreach(var persona in Model)
+    <tbody>
+        @foreach(ClsPersona persona in Model)
         {
         <tr>
             <th>@persona.Nombre</th>
@@ -21,8 +21,8 @@
             <th>@persona.Edad</th>
         </tr>
         }
-
+    </tbody>
+</table>
         @Html.ActionLink("Ir al index","Index")
         <br />
     @Html.ActionLink("Mostrar posicion 3", "listadoPersonasPos3")
-</table>

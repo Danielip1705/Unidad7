@@ -6,7 +6,9 @@ namespace EjercicioUnidad7.Controllers
 {
     public class HomeController : Controller
     {
-
+        /// <summary>
+        /// Varariable que crea una listas de personas
+        /// </summary>
         private List<ClsPersona> personas = new List<ClsPersona>()
             {
                 new ClsPersona("Pablo", "Iglesias", 19),
@@ -16,6 +18,7 @@ namespace EjercicioUnidad7.Controllers
                 new ClsPersona("Charizard", "Potis", 42),
                 new ClsPersona("Mac", "Clovin", 29),
             };
+
 
         public IActionResult Index()
         {
@@ -44,9 +47,16 @@ namespace EjercicioUnidad7.Controllers
 
         public ActionResult listadoPersonas()
         {
-
-
+            try
+            {
+            throw new Exception("Error detectado salchipapa");
             return View(personas);
+
+            }
+            catch (Exception e)
+            {
+                return View("ErrorException");
+            }
 
         }
 

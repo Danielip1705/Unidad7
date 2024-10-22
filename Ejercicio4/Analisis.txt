@@ -1,0 +1,22 @@
+Class ClsPersona
+-Nombre:String(get,set)
+-Apellido:String(get,set)
+-Edad:Int(get,set)
+-idDepart:Int(get)
+---------------------------------------
+Class ClsDepartamento
+-idDepart:Int
+-Nombre:String(get,set)
+---------------------------------------
+DAL
+Class Listado
++ static ObtenerPersonas:List<ClsPersonas>
++ static ObtenerDepartamentos:List<ClsDepartamento>
+-----------------------------------------
+VM
+ClsEditarPersonaVMclsPersona extens ClsPersona
+	List<ClsDEpartamento>departamentos(get)
+
+	ClsEditarPersona(){
+		departamentos = ClsListado.ObtenerDepartamentos
+	}
