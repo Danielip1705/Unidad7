@@ -6,22 +6,29 @@ namespace EjercicioUnidad7.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
+        private List<ClsPersona> personas = new List<ClsPersona>()
+            {
+                new ClsPersona("Pablo", "Iglesias", 19),
+                new ClsPersona("Enrique", "Florencio", 21),
+                new ClsPersona("Patos", "Mas", 34),
+                new ClsPersona("Felipe", "Ponzo", 93),
+                new ClsPersona("Charizard", "Potis", 42),
+                new ClsPersona("Mac", "Clovin", 29),
+            };
 
         public IActionResult Index()
         {
             int hora = DateTime.Now.Hour;
-            ViewBag.hora = hora.ToString;
-            if (hora > 8 && hora < 12)
+
+            ViewBag.horaActual = hora.ToString(); // Mantienes la hora aquí
+            ViewBag.fechaActual = DateTime.Now.ToShortDateString(); // Mantienes la fecha aquí
+
+            if (hora >= 8 && hora < 12)
             {
-                ViewData["Saludo"] = "Buenos dias";
+                ViewData["Saludo"] = "Buenos días";
             }
-            else if (hora > 12 && hora < 20)
+            else if (hora >= 12 && hora < 20)
             {
                 ViewData["Saludo"] = "Buenas tardes";
             }
@@ -29,20 +36,24 @@ namespace EjercicioUnidad7.Controllers
             {
                 ViewData["Saludo"] = "Buenas noches";
             }
-            
-            
-            return View();
+
+            ClsPersona persona = new("Daniel", "Iglesias", 19);
+
+            return View(persona);
         }
 
-        public IActionResult Privacy()
+        public ActionResult listadoPersonas()
         {
-            return View();
+
+
+            return View(personas);
+
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        public ActionResult listadoPersonasPos3()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+
+            return View(personas);
         }
     }
 }

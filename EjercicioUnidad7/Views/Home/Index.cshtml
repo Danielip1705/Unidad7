@@ -1,12 +1,17 @@
-﻿@{
+﻿@model EjercicioUnidad7.Models.ClsPersona
+@{
+    
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+   
     <h2>@ViewData["Saludo"]</h2>
-    <h2>@ViewBag["hora"]</h2>
+    <h2>@ViewBag.hora</h2>
+    <p>Soy @Model.Nombre @Model.Apellido y tengo @Model.Edad años</p>
+    @Html.ActionLink("Ir a listado personas", "listadoPersonas")
 
 </div>
 

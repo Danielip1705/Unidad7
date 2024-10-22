@@ -1,0 +1,10 @@
+﻿@model List<EjercicioUnidad7.Models.ClsPersona>
+@{
+    ViewData["Title"] = "listadoPersonasPos3";
+}
+
+<h1>listadoPersonasPos3</h1>
+
+<p>@Model[2].Nombre @Model[2].Apellido @Model[2].Edad</p>
+
+@Html.ActionLink("Ir al index", "Index")
