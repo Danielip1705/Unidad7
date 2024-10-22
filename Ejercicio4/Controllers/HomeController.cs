@@ -1,32 +1,39 @@
 using Ejercicio4.Models;
+using Ejercicio4.Models.DAL;
+using Ejercicio4.Models.ENTIDADES;
+using Ejercicio4.Models.VM;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Reflection;
 
 namespace Ejercicio4.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
 
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult listadoPersonaRandom()
         {
-            return View();
+
+            List<ClsPersona> listado = ClsListados.obtenerPersonas();
+            return View(listado);
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        public IActionResult editarPersona()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            Random rnd = new Random();
+            List<ClsPersona> listadoPersona = ClsListados.obtenerPersonas();
+            int aleatorio = rnd .Next(0,listadoPersona.Count);
+            ClsPersona personaElegida = listadoPersona[aleatorio];
+
+            ViewBag.departamentos = ClsListados.obtenerDepartamentos();
+
+            return View(personaElegida);
         }
     }
 }

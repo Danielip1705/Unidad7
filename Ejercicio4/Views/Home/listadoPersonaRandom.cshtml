@@ -1,0 +1,26 @@
+﻿
+@model List<Ejercicio4.Models.ENTIDADES.ClsPersona>
+@{
+    ViewData["Title"] = "listadoPersonaRandom";
+}
+
+<h1>listadoPersonaRandom</h1>
+
+
+@{
+    Random rand = new Random();
+
+    int num = rand.Next(1,Model.Count);
+
+    var persona = Model[num];
+
+    <p>Nombre: @persona.Nombre</p>
+    <p>Apellido: @persona.Apellido</p>
+    <p>Edad: @persona.Edad</p>
+    <p>Id Departamento: @persona.IdDepart</p>
+
+}
+
+@Html.ActionLink("Ir al index","Index")
+
+

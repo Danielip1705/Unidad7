@@ -1,0 +1,35 @@
+﻿@model Ejercicio4.Models.ENTIDADES.ClsPersona
+@{
+    ViewData["Title"] = "editarPersona";
+}
+
+<h1>editarPersona</h1>
+
+
+<form method="post">
+        <div>
+            <label>Departamentos</label>    
+            <select>
+            @foreach(var depart in ViewBag.departamentos)
+            {
+                <option value="@depart.NombreDepart">@depart.NombreDepart</option>
+            }
+        </select>
+        </div>
+        
+        <div>
+            <label for="nombre">Nombre</label>
+            @Html.TextBoxFor(m=>m.Nombre)
+        </div>
+        <div>
+            <label for="Apellido">Apellido</label>
+            @Html.TextBoxFor(m => m.Apellido)
+        </div>
+        <div>
+            <label for="Edad">Edad</label>
+            @Html.TextBoxFor(m => m.Edad)
+        </div>
+
+        <button type="submit">Guardar</button>
+        
+</form>
