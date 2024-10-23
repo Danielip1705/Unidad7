@@ -11,7 +11,8 @@
         public int Edad {  get; set; }
 
         public int IdDepart {  get; }
-
+        #endregion
+        #region Constructor
         /// <summary>
         /// Declaracion del contructor con parametros
         /// </summary>
@@ -27,9 +28,9 @@
             IdDepart = idDepart;
         }
 
+        #endregion Constructor
 
 
-        #endregion
 
     }
 }

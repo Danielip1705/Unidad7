@@ -11,12 +11,19 @@ namespace Ejercicio4.Controllers
     public class HomeController : Controller
     {
 
-
+        /// <summary>
+        /// Funcion que te envia a la vista index
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Index()
         {
             return View();
         }
 
+        /// <summary>
+        /// Funcion que te envia a la vista listado de una persona aleatoria
+        /// </summary>
+        /// <returns>Una lista de personas</returns>
         public IActionResult listadoPersonaRandom()
         {
 
@@ -24,6 +31,10 @@ namespace Ejercicio4.Controllers
             return View(listado);
         }
 
+        /// <summary>
+        /// Funcion que te envia a la vista editar persona
+        /// </summary>
+        /// <returns>Persona aleatoria para editar en el formulario</returns>
         public IActionResult editarPersona()
         {
             Random rnd = new Random();

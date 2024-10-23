@@ -3,16 +3,19 @@ using Ejercicio4.Models.ENTIDADES;
 
 namespace Ejercicio4.Models.VM
 {
+    
     public class ClsEditarPersona
     {
-         List<ClsDepartamento>departamentos { get; }
+        #region Atributos
+        List<ClsDepartamento>departamentos { get; }
+        #endregion
 
-
-
+        #region Constructor
         public ClsEditarPersona()
         {
 
             departamentos = ClsListados.obtenerDepartamentos();
         }
+        #endregion
     }
 }

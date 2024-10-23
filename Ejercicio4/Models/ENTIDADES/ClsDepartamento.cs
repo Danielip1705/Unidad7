@@ -2,14 +2,15 @@
 {
     public class ClsDepartamento
     {
+        #region Atributos
         /// <summary>
         /// Declaracion de atribuos implementados
         /// </summary>
-        #region Atributos
         public String NombreDepart {  get; set; }
         public int IdDepart { get; }
         #endregion
 
+        #region Constructores
         /// <summary>
         /// Declaracion de constructor con parametros
         /// </summary>
@@ -19,5 +20,6 @@
         NombreDepart = nombre;
         IdDepart = id;
         }
+        #endregion
     }
 }
